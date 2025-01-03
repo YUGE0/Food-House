@@ -11,7 +11,20 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        fcolor:"#2A4064",
+        bc:"#23D16C",
       },
+      fontFamily:{
+        open:['Open Sans'],
+        work:["Work Sans"],
+        inter:["Inter"],
+      },
+      borderRadius: {
+        'xlp': '0.98rem',
+      },
+      width: {
+        'a': '30rem',
+      }
     },
   },
   plugins: [],
