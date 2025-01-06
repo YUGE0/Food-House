@@ -22,13 +22,13 @@ h2 {
   @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold font-open;
 }
 h3{
-  @apply text-2xl sm:text-3xl md:text-4xl font-bold font-work;
+  @apply text-2xl sm:text-3xl md:text-3xl lg:text-4xl font-bold font-work;
 }
 h4{
   @apply text-xl md:text-3xl font-work font-semibold;
 }
 p{
-  @apply text-base font-medium;
+  @apply text-base 2xl:text-lg font-medium;
 }
 
 /* body {
