@@ -1,14 +1,26 @@
+"use client"
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
+import React, { useState } from 'react'
 
 export default function Nav() {
+  const [bMenu, setMenu] = useState(true);
+  console.log(bMenu);
   return (
-    <div className="mt-3 px-2 flex justify-between">
-        <Image src="/FoodHouse Logo.svg" width={300} height={100} alt="Food House Logo"/>
-        <div className="flex justify-around px-10">
-        <Link className="text-Fcolor font-bold text-4xl" href="/menu">Menu</Link>
-        <Link className="text-Fcolor font-bold text-4xl" href="/book">Book</Link>
+    <div className="mt-3 px-2 flex justify-between place-items-center">
+      <Link href="/">
+        <Image src="/FoodHouse Logo.svg" width={300} height={100} alt="Food House Logo"/></Link>
+        <div className="hidden md:block">
+          <div className="flex justify-around px-10">
+          <Link className="text-Fcolor font-bold text-4xl" href="/menu">Menu</Link>
+          <Link className="text-Fcolor font-bold text-4xl" href="/book">Book</Link>
+          </div>
+        </div>
+        <div className="md:hidden">
+          <button className="" onClick={()=>setMenu((prev)=>!prev)}>
+          {bMenu===true?<Image className="p-1" src="/FMenu.svg" width={50} height={0} alt="Food House Logo"/>:
+          <Image className="p-1" src="/CloseMenu.svg" width={50} height={0} alt="Food House Logo"/>}
+          </button>
         </div>
     </div>
   )
