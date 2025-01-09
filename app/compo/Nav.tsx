@@ -33,9 +33,9 @@ export default function Nav() {
           <circle cx="51" cy="52.2837" r="3" stroke="black" strokeWidth="2"/>
         </svg></div>
     </div>
-      {bMenu===false&&<div className="flex justify-around px-10 border-t-2 shadow-md border-black rounded-md m-2 py-1">
-          <Link className="text-Fcolor font-bold text-4xl" href="/menu">Menu</Link>
-          <Link className="text-Fcolor font-bold text-4xl" href="/book">Book</Link>
+      {bMenu===false&&<div className="grid grid-cols-2 gap-1 p-2 border-t-2 shadow-md border-black rounded-md mx-10">
+          <Link className="text-Fcolor font-bold text-4xl w-full text-center" href="/menu">Menu</Link>
+          <Link className="text-Fcolor font-bold text-4xl w-full text-center" href="/book">Book</Link>
       </div>}
     </div>
   )
