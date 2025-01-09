@@ -2,6 +2,7 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
 import SFcard from './SFcard';
+import Link from 'next/link';
 
 export default function Specialities() {
     const[currentSpeciality,setSpeciality] = useState("Appetizers");
@@ -69,11 +70,11 @@ export default function Specialities() {
                 {currentSpeciality=="Rice"&&<SFcard iname={"Veg Dum Biryani"} Price={220} img={"/vegdumbiryani.webp"}/>}
                 {currentSpeciality=="Rice"&&<SFcard iname={"Vaghareli khichdi"} Price={150} img={"/vagharelikhichdi.webp"}/>}
                 {currentSpeciality=="Desserts"&&<SFcard iname={"Rabdi"} Price={180} img={"/rabdi.webp"}/>}
-                {currentSpeciality=="Desserts"&&<SFcard iname={"Gajar Halwa"} Price={180} img={"/GajarHalwa.webp"}/>}
+                {currentSpeciality=="Desserts"&&<SFcard iname={"Gajar Halwa"} Price={180} img={"/GajarKaHalwa.webp"}/>}
             </div>
         </div>
         <div className="my-10 flex justify-end">
-            <button className=" bg-black text-white p-2 px-6 rounded-xl text-3xl font-semibold font-work">Explore</button>
+            <button className="bg-black text-white p-2 px-6 rounded-xl text-3xl font-semibold font-work"><Link href={"/menu"}>Explore</Link></button>
         </div>
     </div>
   )
