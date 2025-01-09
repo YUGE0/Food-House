@@ -1,6 +1,7 @@
-<svg width="68" height="58" viewBox="0 0 68 58" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M21.055 0.5L65.3738 2.45556L67.9999 10.082L24.2444 5.40345C22.9818 5.26845 21.7153 5.61883 20.7016 6.38348L0 22V30L16 46H56.7477L59.3738 51H14L0 36V30L16 46H56.7477L59.3738 51H14L0 36V18.5L21.055 0.5Z" fill="black"/>
-<path d="M39.2198 12.2727V45H33.2912V18.0415H33.0994L25.445 22.9315V17.4982L33.5788 12.2727H39.2198Z" fill="black"/>
-<circle cx="22" cy="54" r="4" fill="black"/>
-<circle cx="52" cy="54" r="4" fill="black"/>
+<svg width="67" height="58" viewBox="0 0 67 58" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M20.055 0.5L64.3738 2.76692L66.9999 11.6077L23.6132 6.22988C22.1349 6.04665 20.652 6.53205 19.5682 7.55387L0 26.0028L7 30.3247L9 24.8947L16.5 44.6622L58.7477 42.9742L64.3738 48.7703H14L7 30.3247L9 24.8947L16.5 44.6622L58.7477 42.9742L64.3738 48.7703H14L7 30.3247L0 26.0028V21.3659L20.055 0.5Z" fill="black"/>
+<text x="32" y="40" fill="black" fontSize="30" fontFamily="'Inter', sans-serif" fontWeight="bold" textAnchor="middle">
+{dynamicValue}</text>
+<circle cx="21" cy="52.2837" r="3" stroke="black" stroke-width="2"/>
+<circle cx="51" cy="52.2837" r="3" stroke="black" stroke-width="2"/>
 </svg>
