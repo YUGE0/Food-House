@@ -56,20 +56,20 @@ export default function Specialities() {
                 </button>
             </div>
             <div className="p-6">
-                {currentSpeciality=="Appetizers"&&<Image className="rounded-xl" src="/PaneerTikka.png" width={500} height={0} alt="Paneer Tikka"/>}
-                {currentSpeciality=="Food"&&<Image className="rounded-xl" src="/AlooGobi.png" width={500} height={0} alt="Paneer Tikka"/>}
-                {currentSpeciality=="Rice"&&<Image className="rounded-xl" src="/jeerarice.png" width={500} height={0} alt="Paneer Tikka"/>}
-                {currentSpeciality=="Desserts"&&<Image className="rounded-xl" src="/GulabJamun.png" width={500} height={0} alt="Paneer Tikka"/>}
+                {currentSpeciality=="Appetizers"&&<Image className="rounded-xl" src="/PaneerTikka.webp" width={500} height={0} alt="Paneer Tikka"/>}
+                {currentSpeciality=="Food"&&<Image className="rounded-xl" src="/AlooGobi.webp" width={500} height={0} alt="Paneer Tikka"/>}
+                {currentSpeciality=="Rice"&&<Image className="rounded-xl" src="/jeerarice.webp" width={500} height={0} alt="Paneer Tikka"/>}
+                {currentSpeciality=="Desserts"&&<Image className="rounded-xl" src="/GulabJamun.webp" width={500} height={0} alt="Paneer Tikka"/>}
             </div>
             <div className="py-10 text-white space-y-10 content-center">
-                {currentSpeciality=="Appetizers"&&<SFcard iname={"Paneer Tikka"} Price={180} img={"/PaneerTikka.png"}/>}
-                {currentSpeciality=="Appetizers"&&<SFcard iname={"Hariyali Paneer"} Price={200} img={"/HariyaliPaneerTikka.png"}/>}
-                {currentSpeciality=="Food"&&<SFcard iname={"Shahi Paneer"} Price={180} img={"/ShahiPaneer.png"}/>}
-                {currentSpeciality=="Food"&&<SFcard iname={"Rajma Chawal"} Price={180} img={"/RajmaChawal.png"}/>}
-                {currentSpeciality=="Rice"&&<SFcard iname={"Veg Dum Biryani"} Price={220} img={"/vegdumbiryani.png"}/>}
-                {currentSpeciality=="Rice"&&<SFcard iname={"Vaghareli khichdi"} Price={150} img={"/vagharelikhichdi.png"}/>}
-                {currentSpeciality=="Desserts"&&<SFcard iname={"Rabdi"} Price={180} img={"/rabdi.png"}/>}
-                {currentSpeciality=="Desserts"&&<SFcard iname={"Gajar Halwa"} Price={180} img={"/GajarHalwa.png"}/>}
+                {currentSpeciality=="Appetizers"&&<SFcard iname={"Paneer Tikka"} Price={180} img={"/PaneerTikka.webp"}/>}
+                {currentSpeciality=="Appetizers"&&<SFcard iname={"Hariyali Paneer"} Price={200} img={"/HariyaliPaneerTikka.webp"}/>}
+                {currentSpeciality=="Food"&&<SFcard iname={"Shahi Paneer"} Price={180} img={"/ShahiPaneer.webp"}/>}
+                {currentSpeciality=="Food"&&<SFcard iname={"Rajma Chawal"} Price={180} img={"/RajmaChawal.webp"}/>}
+                {currentSpeciality=="Rice"&&<SFcard iname={"Veg Dum Biryani"} Price={220} img={"/vegdumbiryani.webp"}/>}
+                {currentSpeciality=="Rice"&&<SFcard iname={"Vaghareli khichdi"} Price={150} img={"/vagharelikhichdi.webp"}/>}
+                {currentSpeciality=="Desserts"&&<SFcard iname={"Rabdi"} Price={180} img={"/rabdi.webp"}/>}
+                {currentSpeciality=="Desserts"&&<SFcard iname={"Gajar Halwa"} Price={180} img={"/GajarHalwa.webp"}/>}
             </div>
         </div>
         <div className="my-10 flex justify-end">
