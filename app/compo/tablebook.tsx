@@ -15,7 +15,7 @@ export default function Tablebook() {
     setQuantity((prevQuantity) => Math.max(1, prevQuantity - 1));
   };
 
-  const handleSubmit = (e:any) => {
+  const handleSubmit = (e: { preventDefault: () => void; }) => {
     e.preventDefault();
     alert(name+" your booking has submitted!");
     console.log({
