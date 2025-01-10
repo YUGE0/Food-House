@@ -1,4 +1,5 @@
 "use client";
+import { supabase } from "@/supabase/client";
 import React, { useState } from "react";
 
 export default function Tablebook() {
@@ -15,16 +16,44 @@ export default function Tablebook() {
     setMebers((prevMembers) => Math.max(1, prevMembers - 1));
   };
 
-  const handleSubmit = (e: { preventDefault: () => void; }) => {
+//   const handleSubmit = (e: { preventDefault: () => void; }) => {
+//     e.preventDefault();
+//     alert(name+" your booking has submitted!");
+//     console.log({
+//       name,
+//       members,
+//       date,
+//       time,
+//     });
+//   };
+
+const handleSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
-    alert(name+" your booking has submitted!");
-    console.log({
-      name,
-      members,
-      date,
-      time,
-    });
-  };
+
+    try {
+        const { data, error } = await supabase
+            .from("bookings") // Replace with your actual table name
+            .insert([
+                {
+                    name,
+                    date,
+                    time,
+                    members,
+                },
+            ]);
+
+        if (error) throw error;
+
+        alert("Booking successful!");
+        setName("");
+        setDate("");
+        setTime("");
+        setMebers(1);
+    } catch (err) {
+        console.error("Error submitting form:");
+        alert("Error booking table. Please try again.");
+    }
+};
 
   return (
     <div className="p-10 m-10 md:m-16 rounded-2xl shadow-md shadow-black/30">
