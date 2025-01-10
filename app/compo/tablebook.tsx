@@ -53,10 +53,19 @@ export default function Tablebook() {
           <div className="p-2 md:p-6 w-full">
             <h3>Date</h3>
             <input className="border-b-2 border-black w-full p-2 text-white uppercase rounded-lg bg-black" type="date" value={date} onChange={(e) => setDate(e.target.value)} required />
+            <div className="mt-2 grid gap-2 md:grid-cols-2">
+                <button type="button" onClick={() => {const today = new Date().toISOString().split("T")[0]; setDate(today)}} className="rounded-xl w-full p-1 px-2 text-3xl font-semibold font-work shadow-black/50 border shadow-sm">Today</button>
+                <button type="button" onClick={() => {const tomorrow = new Date(); tomorrow.setDate(tomorrow.getDate() + 1);
+                 const tomorrowDate = tomorrow.toISOString().split("T")[0];setDate(tomorrowDate)}} className="rounded-xl w-full p-1 px-2 text-3xl font-semibold font-work shadow-black/50 border shadow-sm">Tomorrow</button>
+            </div>
           </div>
           <div className="p-2 md:p-6 w-full">
             <h3>Time</h3>
             <input className="border-b-2 border-black w-full p-2 text-white uppercase rounded-lg bg-black" type="time" value={time} onChange={(e) => setTime(e.target.value)} required />
+            <div className="mt-2 grid gap-2 md:grid-cols-2">
+            <button type="button" onClick={()=>{setTime("12:30")}} className="rounded-xl w-full p-1 px-2 text-3xl font-semibold font-work shadow-black/50 border shadow-sm">Lunch</button>
+            <button type="button" onClick={()=>{setTime("08:00")}} className="rounded-xl w-full p-1 px-2 text-3xl font-semibold font-work shadow-black/50 border shadow-sm">Dinner</button>
+            </div>
           </div>
         </div>
         <button type="submit" className="mt-10 md:mt-2 md:ml-4 w-full md:w-fit bg-black text-white p-2 px-6 rounded-xl text-3xl font-semibold font-work"> Book </button>

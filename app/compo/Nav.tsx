@@ -7,7 +7,7 @@ export default function Nav() {
   const [bMenu, setMenu] = useState(true)
   //const [dynamicValue, setDynamicValue] = useState(1)
 
-  console.log(bMenu);
+  //console.log(bMenu);
   return (
     <div>
     <div className="border-none mt-3 px-2 flex justify-between place-items-center">
@@ -33,7 +33,7 @@ export default function Nav() {
           <circle cx="51" cy="52.2837" r="3" stroke="black" strokeWidth="2"/>
         </svg></div>
     </div>
-      {bMenu===false&&<div className="grid grid-cols-2 gap-1 p-2 border-t-2 shadow-md border-black rounded-md mx-10">
+      {bMenu===false&&<div className="grid grid-cols-2 gap-1 p-1 border-t-2 shadow-md border-black rounded-md mx-10">
           <Link className="text-Fcolor font-bold text-4xl w-full text-center" href="/menu">Menu</Link>
           <Link className="text-Fcolor font-bold text-4xl w-full text-center" href="/book">Book</Link>
       </div>}
