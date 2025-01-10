@@ -43,13 +43,14 @@ const handleSubmit = async (e: { preventDefault: () => void; }) => {
             ]);
 
         if (error) throw error;
-        alert("Booking successful!"+data);
+        console.log(data)
+        alert("Booking successful!");
         setName("");
         setDate("");
         setTime("");
         setMebers(0);
-    } catch (err) {
-        console.error("Error submitting form:"+err);
+    } catch (e) {
+        console.error("Error submitting form:",e);
         alert("Error booking table. Please try again.");
     }
 };
