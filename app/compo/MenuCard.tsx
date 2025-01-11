@@ -27,8 +27,8 @@ export default function MCard(fc: {
         <div className="flex justify-between">
             <div className="flex justify-items-center">
                 <h4 className="text-2xl">Serves:</h4>
-                <Image className="" src="/PersonBlack.svg" width={22} height={0} alt="Person"/>
-                <Image className="" src="/PersonBlack.svg" width={22} height={0} alt="Person"/>
+                {fc.serve===1?<Image className="" src="/PersonBlack.svg" width={22} height={0} alt="Person"/>:
+                <><Image className="" src="/PersonBlack.svg" width={22} height={0} alt="Person" /><Image className="" src="/PersonBlack.svg" width={22} height={0} alt="Person" /></>}
             </div>
             <h4 className="text-2xl">{fc.price}₹</h4>
         </div>

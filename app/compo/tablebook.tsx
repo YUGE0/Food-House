@@ -55,6 +55,16 @@ const handleSubmit = async (e: { preventDefault: () => void; }) => {
     }
 };
 
+  const today = new Date().toISOString().split("T")[0]; // Date
+  const cTime = new Date().toLocaleTimeString("en-US",{ hour12: false,hour: "2-digit",minute: "2-digit",});//Time
+  const validateTime = (selectedTime: string): boolean => {
+    if (selectedTime < cTime) {
+      alert("You cannot select a past time!");
+      return false;
+    }
+    return true;
+  };
+
   return (
     <div className="p-10 m-10 md:m-16 rounded-2xl shadow-md shadow-black/30">
       <h1>We are almost there, hope to see you soon.</h1>
@@ -81,16 +91,17 @@ const handleSubmit = async (e: { preventDefault: () => void; }) => {
           </div>
           <div className="p-2 md:p-6 w-full">
             <h3>Date</h3>
-            <input className="border-b-2 border-black w-full p-2 text-white uppercase rounded-lg bg-black" type="date" value={date} onChange={(e) => setDate(e.target.value)} required />
+            <input className="border-b-2 border-black w-full p-2 text-white uppercase rounded-lg bg-black" type="date" value={date} min={today} onChange={(e) => setDate(e.target.value)} required />
             <div className="mt-2 grid gap-2 md:grid-cols-2">
-                <button type="button" onClick={() => {const today = new Date().toISOString().split("T")[0]; setDate(today)}} className="rounded-xl w-full p-1 px-2 text-3xl font-semibold font-work shadow-black/50 border shadow-sm">Today</button>
+                <button type="button" onClick={() => {setDate(today)}} className="rounded-xl w-full p-1 px-2 text-3xl font-semibold font-work shadow-black/50 border shadow-sm">Today</button>
                 <button type="button" onClick={() => {const tomorrow = new Date(); tomorrow.setDate(tomorrow.getDate() + 1);
                  const tomorrowDate = tomorrow.toISOString().split("T")[0];setDate(tomorrowDate)}} className="rounded-xl w-full p-1 px-2 text-3xl font-semibold font-work shadow-black/50 border shadow-sm">Tomorrow</button>
             </div>
           </div>
           <div className="p-2 md:p-6 w-full">
             <h3>Time</h3>
-            <input className="border-b-2 border-black w-full p-2 text-white uppercase rounded-lg bg-black" type="time" value={time} onChange={(e) => setTime(e.target.value)} required />
+            <input className="border-b-2 border-black w-full p-2 text-white uppercase rounded-lg bg-black" type="time" value={time} min={cTime} 
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {const selectedTime: string = e.target.value;if (validateTime(selectedTime)) {setTime(selectedTime);}}} required />
             <div className="mt-2 grid gap-2 md:grid-cols-2">
             <button type="button" onClick={()=>{setTime("12:30")}} className="rounded-xl w-full p-1 px-2 text-3xl font-semibold font-work shadow-black/50 border shadow-sm">Lunch</button>
             <button type="button" onClick={()=>{setTime("08:00")}} className="rounded-xl w-full p-1 px-2 text-3xl font-semibold font-work shadow-black/50 border shadow-sm">Dinner</button>
