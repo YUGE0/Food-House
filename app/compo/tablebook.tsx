@@ -103,8 +103,8 @@ const handleSubmit = async (e: { preventDefault: () => void; }) => {
             <input className="border-b-2 border-black w-full p-2 text-white uppercase rounded-lg bg-black" type="time" value={time} min={cTime} 
             onChange={(e: React.ChangeEvent<HTMLInputElement>) => {const selectedTime: string = e.target.value;if (validateTime(selectedTime)) {setTime(selectedTime);}}} required />
             <div className="mt-2 grid gap-2 md:grid-cols-2">
-            <button type="button" onClick={()=>{setTime("12:30")}} className="rounded-xl w-full p-1 px-2 text-3xl font-semibold font-work shadow-black/50 border shadow-sm">Lunch</button>
-            <button type="button" onClick={()=>{setTime("08:00")}} className="rounded-xl w-full p-1 px-2 text-3xl font-semibold font-work shadow-black/50 border shadow-sm">Dinner</button>
+            {<button type="button" onClick={()=>{setTime("12:30")}} className="rounded-xl w-full p-1 px-2 text-3xl font-semibold font-work shadow-black/50 border shadow-sm">Lunch</button>}
+            {<button type="button" onClick={()=>{setTime("20:00")}} className="rounded-xl w-full p-1 px-2 text-3xl font-semibold font-work shadow-black/50 border shadow-sm">Dinner</button>}
             </div>
           </div>
         </div>
