@@ -33,7 +33,7 @@ const menu: Menu[] = [
         category: "Sandwiches",
         dishes: [
           { id: 12, img: "ClubSandwich.webp", name: "Club Sandwich", detail: "Triple-layer sandwich with fresh veggies, mayonnaise, and cheese.", serve: 1, price: 200 },
-          { id: 13, img: "GrilledSandwich.webp", name: "Grilled Veggie Sandwich", detail: "Assorted veggies grilled with cheese and spices.", serve: 1, price: 180 },
+          { id: 13, img: "GrilledSandwich.webp", name: "Grilled Sandwich", detail: "Assorted veggies grilled with cheese and spices.", serve: 1, price: 180 },
           { id: 14, img: "PaneerTikkaSandwich.webp", name: "Paneer Tikka Sandwich", detail: "Spicy paneer tikka filling in toasted bread.", serve: 1, price: 220 },
           { id: 15, img: "CheesyCornSandwich.webp", name: "Cheesy Corn Sandwich", detail: "Creamy corn and melted cheese for the ultimate comfort food.", serve: 1, price: 200 },
         ],
