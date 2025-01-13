@@ -18,7 +18,15 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Food House",
-  description: "Food House is the place where you can eat an authentic food.",
+  description: "Food House is the place where you can eat authentic food.",
+  openGraph: {
+    title: "Food House",
+    description: "Food House is the place where you can eat authentic food.",
+    url: "https://foodhouse-yugs-projects.vercel.app/",
+    siteName: "Food House",
+    locale: "en_US",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
@@ -28,7 +36,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <DefaultSeo {...SEO} />
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <Nav/>
         {children}

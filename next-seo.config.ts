@@ -1,24 +1,15 @@
 const SEO = {
-    title: "Food House - Online Table Booking & Dining Reservations",
-    description: "Book your table effortlessly at Food House. Enjoy seamless dining reservations today!",
+    title: "Food House",
+    description: "Food House is the place where you can eat authentic food.",
     openGraph: {
       type: "website",
       locale: "en_US",
-      url: "https://www.foodhouse.com",
-      title: "Food House - Online Table Booking & Dining Reservations",
-      description: "Effortlessly reserve your table at Food House. Perfect for any occasion.",
-      images: [
-        {
-          url: "https://www.foodhouse.com/assets/foodhouse-thumbnail.jpg",
-          width: 800,
-          height: 600,
-          alt: "Food House Thumbnail",
-        },
-      ],
+      url: "https://yourwebsite.com",
+      siteName: "Food House",
     },
     twitter: {
-      handle: "@FoodHouse",
-      site: "@FoodHouse",
+      handle: "@yourhandle",
+      site: "@site",
       cardType: "summary_large_image",
     },
   };
