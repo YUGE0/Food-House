@@ -21,14 +21,14 @@ export default function CartPopup({ cartItems, onClose }: CartPopupProps) {
 
   return (
     <div className="fixed inset-0 bg-black/50 flex justify-center items-center z-50">
-      <div className="bg-white p-6 rounded-xl shadow-lg w-4/5 md:w-1/2 lg:w-1/3">
+      <div className="bg-white p-6 rounded-xl shadow-lg md:w-1/2 lg:w-1/3">
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-2xl font-semibold">Cart</h2>
           <button onClick={onClose} className="text-red-500 text-xl font-bold">✕</button>
         </div>
-        <div className="divide-y divide-gray-200">
+        <div className="space-y-3">
           {cartItems.map((item) => (
-            <CCard img={""} detail={""} serve={0} key={item.id} {...item} /> // Reuse your card component here
+            <CCard img={item.image} detail={""} serve={0} key={item.id} {...item} /> // Reuse your card component here
           ))}
         </div>
         <div className="mt-4 flex justify-between items-center">
