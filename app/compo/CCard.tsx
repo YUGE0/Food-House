@@ -23,7 +23,7 @@ export default function CCard(fc: {
         <h3 className='h-16'>{fc.name}</h3>
         <div className="mt-6 w-full flex justify-between items-end">
             <h3 className="font-semibold pr-3">{fc.price}₹</h3>
-            <div className="flex w-full">
+            <div className="flex w-fit">
             <button onClick={decrement} className=" bg-white text-black p-1 px-2 rounded-full text-2xl font-bold font-work">-</button>
             <h4 className="p-1 px-2 w-full text-center text-2xl">{quantity}</h4>
             <button onClick={increment} className=" bg-white text-black p-1 px-2 rounded-full text-2xl font-bold font-work">+</button>

@@ -2,9 +2,13 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import React, { useState } from 'react'
+import CartPopup from './CartPopup'
 
 export default function Nav() {
   const [bMenu, setMenu] = useState(true)
+  const [isCartOpen, setCartOpen] = useState(false);
+
+  const toggleCart = () => setCartOpen((prev) => !prev);
   //const [dynamicValue, setDynamicValue] = useState(1)
 
   //console.log(bMenu);
@@ -24,7 +28,7 @@ export default function Nav() {
           <Image className="" src="/CloseMenu.svg" width={50} height={0} alt="Food House Logo"/>}
           </button>
         </div>
-        <div className="hidden">
+        <div onClick={toggleCart} className="">
         <svg width="55" height="50" viewBox="0 0 70 50" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M20.055 0.5L64.3738 2.76692L66.9999 11.6077L23.6132 6.22988C22.1349 6.04665 20.652 6.53205 19.5682 7.55387L0 26.0028L7 30.3247L9 24.8947L16.5 44.6622L58.7477 42.9742L64.3738 48.7703H14L7 30.3247L9 24.8947L16.5 44.6622L58.7477 42.9742L64.3738 48.7703H14L7 30.3247L0 26.0028V21.3659L20.055 0.5Z" fill="black"/>
           <text x="34" y="40" fill="black" fontSize="40" fontFamily="'Inter', sans-serif" fontWeight="bold" textAnchor="middle">
@@ -37,6 +41,7 @@ export default function Nav() {
           <Link className="text-Fcolor font-bold text-4xl w-full text-center" href="/menu">Menu</Link>
           <Link className="text-Fcolor font-bold text-4xl w-full text-center" href="/book">Book</Link>
       </div>}
+      {isCartOpen && <CartPopup onClose={toggleCart} cartItems={[]} />}
     </div>
   )
 }
