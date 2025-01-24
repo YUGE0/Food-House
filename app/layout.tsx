@@ -17,14 +17,6 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Food House",
   description: "Food House is the place where you can eat authentic food.",
-  openGraph: {
-    title: "Food House",
-    description: "Food House is the place where you can eat authentic food.",
-    url: "https://foodhouse-yugs-projects.vercel.app/",
-    siteName: "Food House",
-    locale: "en_US",
-    type: "website",
-  },
 };
 
 export default function RootLayout({
