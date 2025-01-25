@@ -8,24 +8,9 @@ export default function Tablebook() {
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
 
-  const increment = () => {
-    setMebers((prevMembers) => prevMembers + 1);
-  };
+  const increment = () => {setMebers((prevMembers) => prevMembers + 1)}
 
-  const decrement = () => {
-    setMebers((prevMembers) => Math.max(1, prevMembers - 1));
-  };
-
-//   const handleSubmit = (e: { preventDefault: () => void; }) => {
-//     e.preventDefault();
-//     alert(name+" your booking has submitted!");
-//     console.log({
-//       name,
-//       members,
-//       date,
-//       time,
-//     });
-//   };
+  const decrement = () => {setMebers((prevMembers) => Math.max(1, prevMembers - 1))}
 
 const handleSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
@@ -33,14 +18,7 @@ const handleSubmit = async (e: { preventDefault: () => void; }) => {
     try {
         const { data, error } = await supabase
             .from("bookings") // Replace with your actual table name
-            .insert([
-                {
-                    name,
-                    date,
-                    time,
-                    members,
-                },
-            ]);
+            .insert([{name,date,time,members,}]);
 
         if (error) throw error;
         alert("Booking successful!");
