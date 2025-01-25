@@ -16,9 +16,9 @@ export default function CCard(fc: {
     const decrement = () => {
     setQuantity((prevQuantity) => Math.max(0, prevQuantity - 1));};
   return (
-    <div className="p-2 bg-black text-white flex rounded-xlp border border-black/20 shadow-md shadow-black/80 sm:w-[42%] md:w-[80%] lg:w-[40%] xl:w-[30%] 2xl:w-[98%]">
+    <div className="p-2 bg-black text-white flex rounded-xlp border border-black/20 shadow-md shadow-black/80 w-full">
         <button className="p-1 justify-self-end"><Image src={"/CloseMenuWhite.svg"}  width={80} height={0} alt={fc.name}/></button>
-        <Image className="rounded-xl w-[32%] h-full" src={`/${fc.img}`}  width={300} height={0} alt={fc.name}/>
+        <Image className="rounded-xl w-[40%]" src={`/${fc.img}`}  width={300} height={0} alt={fc.name}/>
         <div className="w-full flex flex-col justify-between ml-2">
         <h3 className='h-16'>{fc.name}</h3>
         <div className="mt-6 w-full flex justify-between items-end">

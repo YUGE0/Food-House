@@ -21,7 +21,7 @@ function CategorySection({ category, dishes }: { category: string; dishes: Dish[
   return (
     <div className="mb-12">
       <h2 className="text-4xl font-open font-semibold my-3 border-black border-b-2">{category}</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-2 2xl:grid-cols-3 gap-6">
         {dishes.map((dish) => (
           <MCard key={dish.id} {...dish} />
         ))}
