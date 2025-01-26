@@ -32,6 +32,8 @@ export default function CartPopup({ cartItems, onClose }: CartPopupProps) {
           ))}
         </div>
         <div className="mt-4 flex justify-between items-center">
+            <h1>Payment summary</h1>
+          <h3 className="">Total: ₹{}</h3>
           <h3 className="">Total: ₹{totalPrice}</h3>
           <button className="bg-black text-white px-4 py-2 rounded-lg shadow-lg">
             Checkout
