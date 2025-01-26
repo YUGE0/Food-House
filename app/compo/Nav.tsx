@@ -40,8 +40,8 @@ export default function Nav() {
         </div>
         <div className="md:hidden">
           <button className="p-2" onClick={()=>setMenu((prev)=>!prev)}>
-          {bMenu===true?<Image className="" src="/FMenu.svg" width={50} height={0} alt="Food House Logo"/>:
-          <Image className="" src="/CloseMenu.svg" width={50} height={0} alt="Food House Logo"/>}
+          {bMenu===true?<Image className="" src="/FMenu.svg" width={50} height={0} alt="Menu"/>:
+          <Image className="" src="/CloseMenu.svg" width={50} height={0} alt="close"/>}
           </button>
         </div>
         <div onClick={toggleCart} className="">

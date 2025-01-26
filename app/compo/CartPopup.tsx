@@ -1,6 +1,7 @@
 "use client";
 import React from "react"; // Assuming your card component is named `CCard`
 import CCard from "../compo/CCard";
+import Image from "next/image";
 
 interface Dish {
   id: number;
@@ -24,7 +25,9 @@ export default function CartPopup({ cartItems, onClose }: CartPopupProps) {
       <div className="bg-white p-6 rounded-xl shadow-lg md:w-[70%] lg:w-[60%] xl:w-[40%] 2xl:w-[80%]">
         <div className="flex justify-between items-center mb-4">
           <h3 className="">Cart</h3>
-          <button onClick={onClose} className="text-red-500 text-xl font-bold">✕</button>
+          <button onClick={onClose} className="text-red-500 text-xl font-bold">
+            <Image className="" src="/CloseMenu.svg" width={50} height={0} alt="close"/>
+          </button>
         </div>
         <div className="space-y-3 2xl:space-y-0 grid 2xl:grid-cols-2 gap-2">
           {cartItems.map((item) => (
