@@ -34,7 +34,7 @@ export default function CartPopup({ cartItems, onClose }: CartPopupProps) {
             <CCard img={item.image} key={item.id} {...item} /> // Reuse your card component here
           ))}
         </div>
-        <button className="bg-black text-white p-2 px-6 rounded-xl text-3xl font-semibold font-work"><Link href={"/cart"}>Expand</Link></button>
+        <button className="bg-black text-white p-2 px-6 rounded-xl text-3xl font-semibold font-work"><Link href={"/cart"} onClick={onClose}>Expand</Link></button>
         <div className="mt-4 rounded-xl border-2 p-2 border-fcolor flex flex-wrap justify-between items-baseline">
             <h1>Payment summary</h1>
             <h3 className="py-2">Total: ₹{totalPrice}</h3>
