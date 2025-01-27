@@ -4,7 +4,6 @@ import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 import CartPopup from './CartPopup'
 import { supabase } from '@/supabase/client'
-import { notFound } from 'next/navigation'
 
 interface Item {
   id: number;
