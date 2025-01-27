@@ -1,4 +1,5 @@
 'use client'
+import { supabase } from '@/supabase/client';
 import Image from 'next/image'
 import React, { useState } from 'react'
 
@@ -10,6 +11,22 @@ export default function MCard(fc: {
     price: number; 
 }) {
     const [quantity, setQuantity] = useState(0);
+    const{img,name,detail,serve,price}=fc;
+    const AddToCart = async (e: { preventDefault: () => void; }) => {
+        e.preventDefault();
+    
+        try {
+            const { data, error } = await supabase
+                .from("cart")
+                .insert([{img,name,detail,serve,price,quantity}]);
+            if (error) throw error;
+            alert("Added to cart successful!");
+            console.log(data)
+        } catch (e) {
+            console.error("Error adding in cart:",e);
+            alert("Error in cart. Please try again.");
+        }
+    };
 
     const increment = () => {
     setQuantity((prevQuantity) => prevQuantity + 1);};
@@ -38,7 +55,7 @@ export default function MCard(fc: {
                     <h4 className="p-1 px-2 w-8 text-2xl">{quantity}</h4>
                     <button onClick={increment} className=" bg-black text-white p-1 px-2 text-3xl font-semibold font-work">+</button>
                     </div>
-                    <button className=" bg-black text-white p-1 px-6 md:px-4 rounded-br-xl text-3xl font-semibold font-work">Add</button>
+                    <button onClick={AddToCart} className=" bg-black text-white p-1 px-6 md:px-4 rounded-br-xl text-3xl font-semibold font-work">Add</button>
                 </div>
             </div>
         </div>

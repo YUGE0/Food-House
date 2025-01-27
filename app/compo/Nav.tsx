@@ -1,29 +1,53 @@
 "use client"
 import Image from 'next/image'
 import Link from 'next/link'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import CartPopup from './CartPopup'
-import menu from '../ApiDemo/MenuD'
+import { supabase } from '@/supabase/client'
+import { notFound } from 'next/navigation'
+
+interface Item {
+  id: number;
+  name: string;
+  price: number;
+  quantity: number;
+  image: string;
+}
 
 export default function Nav() {
   const [bMenu, setMenu] = useState(true)
   const [isCartOpen, setCartOpen] = useState(false);
+  const [cartItems, setCartItems] = useState<Item[]>([]);
+  const [totalQuantity, setTotalQuantity] = useState(0);
+  const [loading, setLoading] = useState(true);
 
   const toggleCart = () => setCartOpen((prev) => !prev);
-
-  const sampleCartItems = menu
-    .flatMap((category) =>
-      category.dishes.map((dish) => ({
-        id: dish.id,
-        name: dish.name,
-        price: dish.price,
-        quantity: 0, // Default quantity set to 0
-        image: dish.img,
-      }))
-    ).slice(0, 2)
   
-  const totalQuantity = sampleCartItems.reduce((total, item) => total + item.quantity,0);
+  useEffect(() => {
+    const fetchCartItems = async () => {
+      try {
+        const { data: items, error } = await supabase
+          .from("cart")
+          .select()
+          .eq("tableNo", 1);
+          
+          setTotalQuantity((items || []).length);
+        if (error) {
+          console.error("Error fetching cart items:", error.message);
+          return;
+        }
 
+        if (items) {
+          setCartItems(items as Item[]);
+        }
+      } catch (err) {
+        console.error("Unexpected error:", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchCartItems();
+  }, []);
 
   //const [dynamicValue, setDynamicValue] = useState(1)
 
@@ -57,7 +81,7 @@ export default function Nav() {
           <Link className="text-Fcolor font-bold text-4xl w-full text-center" href="/menu">Menu</Link>
           <Link className="text-Fcolor font-bold text-4xl w-full text-center" href="/book">Book</Link>
       </div>}
-      {isCartOpen && <CartPopup onClose={toggleCart} cartItems={sampleCartItems} />}
+      {isCartOpen&& !loading && <CartPopup onClose={toggleCart} cartItems={cartItems} />}
     </div>
   )
 }

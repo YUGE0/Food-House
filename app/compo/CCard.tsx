@@ -4,19 +4,17 @@ import React, { useState } from 'react'
 
 export default function CCard(fc: {
     img:string;
-    name: string;      
-    detail: string;   
-    serve:number; 
+    name: string;       
+    quantity: number;
     price: number; 
 }) {
-    const [quantity, setQuantity] = useState(0);
-
+    const [quantity, setQuantity] = useState(fc.quantity);
     const increment = () => {
     setQuantity((prevQuantity) => prevQuantity + 1);};
     const decrement = () => {
     setQuantity((prevQuantity) => Math.max(0, prevQuantity - 1));};
   return (
-    <div className="p-2 bg-black text-white flex rounded-xlp border border-black/20 shadow-md shadow-black/80 w-full 2xl:w-[90%] 2xl:h-[80%]">
+    <div className="p-2 bg-black text-white flex rounded-xlp border border-black/20 shadow-md shadow-black/80 w-full 2xl:w-[90%]">
         <button className="p-1 justify-self-end"><Image src={"/CloseMenuWhite.svg"}  width={80} height={0} alt={fc.name}/></button>
         <Image className="rounded-xl w-[40%]" src={`/${fc.img}`}  width={300} height={0} alt={fc.name}/>
         <div className="w-full flex flex-col justify-between ml-2">

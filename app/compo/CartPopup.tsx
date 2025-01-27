@@ -1,7 +1,7 @@
-"use client";
 import React from "react"; // Assuming your card component is named `CCard`
 import CCard from "../compo/CCard";
 import Image from "next/image";
+import Link from "next/link";
 
 interface Dish {
   id: number;
@@ -29,19 +29,17 @@ export default function CartPopup({ cartItems, onClose }: CartPopupProps) {
             <Image className="" src="/CloseMenu.svg" width={50} height={0} alt="close"/>
           </button>
         </div>
-        <div className="space-y-3 2xl:space-y-0 grid 2xl:grid-cols-2 gap-2">
+        <div className="my-5 space-y-3 2xl:space-y-0 grid 2xl:grid-cols-3 gap-2">
           {cartItems.map((item) => (
-            <CCard img={item.image} detail={""} serve={0} key={item.id} {...item} /> // Reuse your card component here
+            <CCard img={item.image} key={item.id} {...item} /> // Reuse your card component here
           ))}
         </div>
-        <div className="mt-4 flex justify-between items-center">
+        <button className="bg-black text-white p-2 px-6 rounded-xl text-3xl font-semibold font-work"><Link href={"/cart"}>Expand</Link></button>
+        <div className="mt-4 rounded-xl border-2 p-2 border-fcolor flex flex-wrap justify-between items-baseline">
             <h1>Payment summary</h1>
-          <h3 className="">Total: ₹{}</h3>
-          <h3 className="">Total: ₹{totalPrice}</h3>
-          <button className="bg-black text-white px-4 py-2 rounded-lg shadow-lg">
-            Checkout
-          </button>
+            <h3 className="py-2">Total: ₹{totalPrice}</h3>
         </div>
+        <button className="mt-4 bg-black text-white w-full p-1 px-6 md:px-4 rounded-b-xl text-3xl font-semibold font-work">Place Order</button>
       </div>
     </div>
   );

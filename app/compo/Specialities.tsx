@@ -6,7 +6,6 @@ import Link from 'next/link';
 
 export default function Specialities() {
     const[currentSpeciality,setSpeciality] = useState("Appetizers");
-    console.log(currentSpeciality)
   return (
     <div className="my-10 md:my-32 px-10"><h1 className="text-center">Enjoy Our Specialties</h1>
         <div className="flex flex-wrap xl:flex-nowrap justify-around">
