@@ -16,6 +16,7 @@ export default function CCard(fc: {
           .from('cart')
           .update({ quantity: newQuantity }) 
           .eq('name', fc.name)
+          if(!data){console.log("empty")}
       
       if (error) {
           console.error('Error updating quantity:', error.message);
