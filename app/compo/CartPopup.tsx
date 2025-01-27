@@ -29,7 +29,7 @@ export default function CartPopup({ cartItems, onClose }: CartPopupProps) {
             <Image className="" src="/CloseMenu.svg" width={50} height={0} alt="close"/>
           </button>
         </div>
-        <div className="my-5 space-y-3 2xl:space-y-0 grid 2xl:grid-cols-3 gap-2">
+        <div className="my-5 space-y-3 2xl:space-y-0 grid 2xl:grid-cols-3 gap-2 h-72 sm:h-auto overflow-y-auto">
           {cartItems.map((item) => (
             <CCard img={item.image} key={item.id} {...item} /> // Reuse your card component here
           ))}

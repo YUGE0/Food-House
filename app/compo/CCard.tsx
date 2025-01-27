@@ -1,4 +1,5 @@
 'use client'
+import { supabase } from '@/supabase/client';
 import Image from 'next/image'
 import React, { useState } from 'react'
 
@@ -9,10 +10,32 @@ export default function CCard(fc: {
     price: number; 
 }) {
     const [quantity, setQuantity] = useState(fc.quantity);
-    const increment = () => {
-    setQuantity((prevQuantity) => prevQuantity + 1);};
-    const decrement = () => {
-    setQuantity((prevQuantity) => Math.max(0, prevQuantity - 1));};
+
+    const updateQuantityInDB = async (newQuantity: number) => {
+      const { data, error } = await supabase
+          .from('cart')
+          .update({ quantity: newQuantity }) 
+          .eq('name', fc.name)
+      
+      if (error) {
+          console.error('Error updating quantity:', error.message);
+      } else {
+          console.log('Quantity updated successfully');
+      }
+  }
+
+  const increment = () => {
+    const newQuantity = quantity + 1
+    setQuantity(newQuantity)
+    updateQuantityInDB(newQuantity)
+  }
+
+  const decrement = () => {
+    const newQuantity = Math.max(0, quantity - 1)
+    setQuantity(newQuantity)
+    updateQuantityInDB(newQuantity)
+  }
+
   return (
     <div className="p-2 bg-black text-white flex rounded-xlp border border-black/20 shadow-md shadow-black/80 w-full 2xl:w-[90%]">
         <button className="p-1 justify-self-end"><Image src={"/CloseMenuWhite.svg"}  width={80} height={0} alt={fc.name}/></button>
