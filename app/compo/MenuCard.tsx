@@ -35,7 +35,7 @@ export default function MCard(fc: {
   return (
     <div className="p-3 rounded-xlp shadow-lg border border-black/20 shadow-black/50 sm:w-[90%] md:w-fit xl:w-fit">
         <div className="flex flex-col xl:flex-row">
-                <Image className="rounded-t-lg xl:rounded-tr-none xl:rounded-l-lg w-full xl:w-[40%]" src={`/${fc.img}`}  width={500} height={0} alt={fc.name}/>
+                <Image className="rounded-t-lg xl:rounded-tr-none xl:rounded-l-lg w-full xl:w-[40%] 2xl:w-[50%]" src={`/${fc.img}`}  width={500} height={0} alt={fc.name}/>
             <div className="xl:ml-2">
             <div className="">
                 <h3 className="h-22 sm:h-16 lg:h-20 xl:my-2 xl:h-16">{fc.name}</h3>

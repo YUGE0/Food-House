@@ -1,11 +1,21 @@
-import React from 'react'
+"use client"
+import React, { useState } from 'react'
 import menu,{Dish} from '../ApiDemo/MenuD';
 import MCard from '../compo/MenuCard';
+import CustomSelect from '../compo/CustomSelect';
 
 export default function Page() {
+  const [selectedTable, setSelectedTable] = useState<string>("")
+
+  const handleTableSelect = (value:string) => {
+    setSelectedTable(value);  // Update the state with the selected value
+  };
+  console.log(selectedTable)
+  
   return (
     <div className="p-10">
       <h1 className="text-6xl font-bold font-work text-center mb-6">Our Menu</h1>
+      <CustomSelect onsel={handleTableSelect}/>
       {menu.map((category) => (
         <CategorySection
           key={category.category}
