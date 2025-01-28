@@ -1,11 +1,18 @@
 "use client"
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import menu,{Dish} from '../ApiDemo/MenuD';
 import MCard from '../compo/MenuCard';
 import CustomSelect from '../compo/CustomSelect';
 
 export default function Page() {
-  const [selectedTable, setSelectedTable] = useState<number>(parseInt(localStorage.getItem("table") || "0", 10))
+  const [selectedTable, setSelectedTable] = useState<number>(0)
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+        const storedTable = parseInt(localStorage.getItem("table") || "0", 10);
+        setSelectedTable(storedTable);
+    }
+}, []); 
 
   const handleTableSelect = (value:number) => {
     setSelectedTable(value);  // Update the state with the selected value

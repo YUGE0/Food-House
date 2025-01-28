@@ -13,41 +13,49 @@ interface Item {
   image: string;
 }
 
+export const revalidate = 0;
+
 export default function Nav() {
   const [bMenu, setMenu] = useState(true)
   const [isCartOpen, setCartOpen] = useState(false);
   const [cartItems, setCartItems] = useState<Item[]>([]);
   const [totalQuantity, setTotalQuantity] = useState(0);
   const [loading, setLoading] = useState(true);
+  const [tableNo, setTableNo] = useState<number>(1);
 
   const toggleCart = () => setCartOpen((prev) => !prev);
   
   useEffect(() => {
-    const fetchCartItems = async () => {
-      const tNumber = parseInt(localStorage.getItem("table") || "0", 10);
-      try {
-        const { data: items, error } = await supabase
-          .from("cart")
-          .select()
-          .eq("tableNo", {tNumber});
-          
-          setTotalQuantity((items || []).length);
-        if (error) {
-          console.error("Error fetching cart items:", error.message);
-          return;
-        }
+    if (typeof window !== 'undefined') {
+        const storedTableNo = localStorage.getItem("table");
+        const validTableNo = storedTableNo ? parseInt(storedTableNo) : 1;
+        setTableNo(validTableNo);
+    }
+}, []);
 
-        if (items) {
-          setCartItems(items as Item[]);
+useEffect(() => {
+    const fetchCartItems = async () => {
+        try {
+            const { data: items, error } = await supabase
+                .from("cart")
+                .select()
+                .eq("tableNo", tableNo);
+
+            if (error) {
+                console.error("Error fetching cart items:", error.message);
+                return;
+            }
+
+            setCartItems(items || []);
+            setTotalQuantity(items?.length || 0);
+        } catch (err) {
+            console.error("Unexpected error:", err);
+        } finally {
+            setLoading(false);
         }
-      } catch (err) {
-        console.error("Unexpected error:", err);
-      } finally {
-        setLoading(false);
-      }
     };
-    fetchCartItems();
-  }, []);
+    if (tableNo) fetchCartItems();
+}, [tableNo]);
 
   //const [dynamicValue, setDynamicValue] = useState(1)
 

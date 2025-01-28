@@ -1,6 +1,6 @@
 "use client"
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 interface CustomSelectProps {
     onsel: (table: number) => void; // The type of the 'onsel' function
@@ -14,9 +14,14 @@ interface CustomSelectProps {
 
   const handleSelect = (table: number) => {
     setSelectedTable(table);
-    localStorage.setItem("selectedTable", table.toString())
     onsel(table); 
   };
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') { 
+      localStorage.setItem("selectedTable", selectedTable.toString()); 
+    }
+  }, [selectedTable]); 
 
   //console.log(selectedTable);
   
