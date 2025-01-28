@@ -23,8 +23,8 @@ export default function MCard(fc: {
                 .insert([{img,name,detail,serve,price,quantity,tableNo}]);
             if (error) throw error;
             alert("Added to cart successful!");
+            //revalidate
             console.log(data)
-            revalidate
         } catch (e) {
             console.error("Error adding in cart:",e);
             alert("Error in cart. Please try again.");
