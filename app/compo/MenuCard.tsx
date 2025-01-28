@@ -2,7 +2,7 @@
 import { supabase } from '@/supabase/client';
 import Image from 'next/image'
 import React, { useState } from 'react'
-import { revalidate } from '../page';
+//import { revalidate } from '../page';
 
 export default function MCard(fc: {
     img:string;
