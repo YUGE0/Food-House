@@ -24,11 +24,12 @@ export default function Nav() {
   
   useEffect(() => {
     const fetchCartItems = async () => {
+      const tNumber = parseInt(localStorage.getItem("table") || "0", 10);
       try {
         const { data: items, error } = await supabase
           .from("cart")
           .select()
-          .eq("tableNo", 1);
+          .eq("tableNo", {tNumber});
           
           setTotalQuantity((items || []).length);
         if (error) {

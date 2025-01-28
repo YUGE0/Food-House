@@ -14,6 +14,7 @@ interface CustomSelectProps {
 
   const handleSelect = (table: number) => {
     setSelectedTable(table);
+    localStorage.setItem("selectedTable", table.toString())
     onsel(table); 
   };
 

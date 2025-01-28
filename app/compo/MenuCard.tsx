@@ -2,6 +2,7 @@
 import { supabase } from '@/supabase/client';
 import Image from 'next/image'
 import React, { useState } from 'react'
+import { revalidate } from '../page';
 
 export default function MCard(fc: {
     img:string;
@@ -22,7 +23,7 @@ export default function MCard(fc: {
                 .insert([{img,name,detail,serve,price,quantity,tableNo}]);
             if (error) throw error;
             alert("Added to cart successful!");
-            console.log(data)
+            revalidate
         } catch (e) {
             console.error("Error adding in cart:",e);
             alert("Error in cart. Please try again.");

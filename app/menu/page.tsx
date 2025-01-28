@@ -5,7 +5,7 @@ import MCard from '../compo/MenuCard';
 import CustomSelect from '../compo/CustomSelect';
 
 export default function Page() {
-  const [selectedTable, setSelectedTable] = useState<number>(0)
+  const [selectedTable, setSelectedTable] = useState<number>(parseInt(localStorage.getItem("table") || "0", 10))
 
   const handleTableSelect = (value:number) => {
     setSelectedTable(value);  // Update the state with the selected value

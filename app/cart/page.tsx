@@ -22,12 +22,14 @@ export default function Page() {
   const [totalItem,setTItem] = useState(0)
   
   useEffect(() => {
+    //revalidatePath("/cart");
     const fetchCartItems = async () => {
+      const tNumber = parseInt(localStorage.getItem("table") || "0", 10);
       try {
         const { data, error } = await supabase
         .from("cart")
         .select()
-        .eq("tableNo", 1);
+        .eq("tableNo", {tNumber});
         
         if (error) {
           console.error("Error fetching items:", error);
