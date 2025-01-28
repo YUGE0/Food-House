@@ -51,7 +51,7 @@ export default function Page() {
     };
 
     fetchCartItems();
-  }, [100]);
+  }, []);
 
   // Display loading spinner while data is being fetched
   if (loading) {
