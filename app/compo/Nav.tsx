@@ -1,7 +1,7 @@
 "use client"
 import Image from 'next/image'
 import Link from 'next/link'
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import CartPopup from './CartPopup'
 import { supabase } from '@/supabase/client'
 
@@ -13,7 +13,7 @@ interface Item {
   image: string;
 }
 
-export const revalidate = 0;
+export const revalidate = 1;
 
 export default function Nav() {
   const [bMenu, setMenu] = useState(true)
@@ -21,41 +21,41 @@ export default function Nav() {
   const [cartItems, setCartItems] = useState<Item[]>([]);
   const [totalQuantity, setTotalQuantity] = useState(0);
   const [loading, setLoading] = useState(true);
-  const [tableNo, setTableNo] = useState<number>(1);
+  //const [tableNo, setTableNo] = useState<number>(1);
 
   const toggleCart = () => setCartOpen((prev) => !prev);
   
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-        const storedTableNo = localStorage.getItem("table");
-        const validTableNo = storedTableNo ? parseInt(storedTableNo) : 1;
-        setTableNo(validTableNo);
-    }
-}, []);
+  const fetchCartItems = useCallback(() => {
+    const tNumber = parseInt(localStorage.getItem("table") || "0", 10);
+    const validTableNumber = isNaN(tNumber) ? 1 : tNumber;
 
-useEffect(() => {
-    const fetchCartItems = async () => {
-        try {
-            const { data: items, error } = await supabase
-                .from("cart")
-                .select()
-                .eq("tableNo", tableNo);
+    const getData = async () => {
+      try {
+        const { data: items, error } = await supabase
+          .from("cart")
+          .select()
+          .eq("tableNo", validTableNumber);
 
-            if (error) {
-                console.error("Error fetching cart items:", error.message);
-                return;
-            }
-
-            setCartItems(items || []);
-            setTotalQuantity(items?.length || 0);
-        } catch (err) {
-            console.error("Unexpected error:", err);
-        } finally {
-            setLoading(false);
+        if (error) {
+          console.error("Error fetching cart items:", error.message);
+          return;
         }
+
+        setCartItems(items || []);
+        setTotalQuantity((items || []).reduce((sum, item) => sum + (item.quantity || 0), 0));
+      } catch (err) {
+        console.error("Unexpected error:", err);
+      } finally {
+        setLoading(false);
+      }
     };
-    if (tableNo) fetchCartItems();
-}, [tableNo]);
+
+    getData();
+  }, []);
+
+  useEffect(() => {
+    fetchCartItems();
+  }, [fetchCartItems]);
 
   //const [dynamicValue, setDynamicValue] = useState(1)
 

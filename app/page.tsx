@@ -3,7 +3,7 @@ import Review from "./compo/Review";
 import Specialities from "./compo/Specialities";
 import RDishes from "./compo/RDishes";
 
-export const revalidate = 0;
+export const revalidate = 1;
 
 export default function Home() {
   return (
