@@ -5,16 +5,16 @@ import MCard from '../compo/MenuCard';
 import CustomSelect from '../compo/CustomSelect';
 
 export default function Page() {
-  const [selectedTable, setSelectedTable] = useState<number>(0)
+  const [selectedTable, setSelectedTable] = useState<string>("f1")
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
-        const storedTable = parseInt(localStorage.getItem("table") || "0", 10);
-        setSelectedTable(storedTable);
+      const storedTable = sessionStorage.getItem("table") ?? "f1"
+      setSelectedTable(storedTable);
     }
 }, []); 
 
-  const handleTableSelect = (value:number) => {
+  const handleTableSelect = (value:string) => {
     setSelectedTable(value);  // Update the state with the selected value
   };
   //console.log(selectedTable)
@@ -35,7 +35,9 @@ export default function Page() {
   );
 }
 
-function CategorySection({ category, dishes, tableNo }: { category: string; dishes: Dish[]; tableNo: number; }) {
+function CategorySection({ category, dishes, tableNo }: { category: string; dishes: Dish[]; tableNo: string; }) {
+  console.log(tableNo);
+  
   return (
     <div className="mb-12">
       <h2 className="text-4xl font-open font-semibold my-3 border-black border-b-2">{category}</h2>

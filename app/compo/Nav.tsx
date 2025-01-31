@@ -26,15 +26,14 @@ export default function Nav() {
   const toggleCart = () => setCartOpen((prev) => !prev);
   
   const fetchCartItems = useCallback(() => {
-    const tNumber = parseInt(localStorage.getItem("table") || "0", 10);
-    const validTableNumber = isNaN(tNumber) ? 1 : tNumber;
-
+    const tNumber = sessionStorage.getItem("table") ?? "4"
+  
     const getData = async () => {
       try {
         const { data: items, error } = await supabase
           .from("cart")
           .select()
-          .eq("tableNo", validTableNumber);
+          .eq("tableNo", tNumber);
 
         if (error) {
           console.error("Error fetching cart items:", error.message);
@@ -42,6 +41,7 @@ export default function Nav() {
         }
 
         setCartItems(items || []);
+        console.log()
         setTotalQuantity((items || []).reduce((sum, item) => sum + (item.quantity || 0), 0));
       } catch (err) {
         console.error("Unexpected error:", err);

@@ -24,7 +24,7 @@ export default function Page() {
   useEffect(() => {
     //revalidatePath("/cart");
     const fetchCartItems = async () => {
-      const tNumber = parseInt(localStorage.getItem("table") || "0", 10);
+      const tNumber = sessionStorage.getItem("table") ?? "f1"
       try {
         const { data, error } = await supabase
         .from("cart")
