@@ -13,7 +13,7 @@ export default function MCard(fc: {
 }) {
     const [quantity, setQuantity] = useState(0);
     const{img,name,detail,serve,price,tableNo}=fc;
-    console.log({fc});
+    //console.log({fc});
     
     const AddToCart = async (e: { preventDefault: () => void; }) => {
         e.preventDefault();
@@ -25,10 +25,10 @@ export default function MCard(fc: {
             if (error) {
                 console.error("Supabase Error:", error); // More explicit logging
                 alert("Error adding to cart: " + error.message);
+                console.log(data)
                 return;
             }
             alert("Added to cart successful!");
-            console.log(data)
         } catch (e) {
             console.error("Error adding in cart:",e);
             alert("Error in cart. Please try again."); 

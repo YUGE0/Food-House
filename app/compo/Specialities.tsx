@@ -74,6 +74,7 @@ export default function Specialities() {
         </div>
         <div className="my-10 flex justify-end">
             <button className="bg-black text-white p-2 px-6 rounded-xl text-3xl font-semibold font-work"><Link href={"/menu"}>Explore</Link></button>
+            <button className="bg-black text-white p-2 px-6 rounded-xl text-3xl font-semibold font-work"><Link href={"/menu"}>Explore</Link></button>
         </div>
     </div>
   )
