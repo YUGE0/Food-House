@@ -6,6 +6,7 @@ import OrderServed from '../compo/OrderServed'
 export default function page() {
   return (
     <div className="px-10 grid grid-cols-3 gap-10">
+      <h1>This is admin page</h1>
         <div className="rounded-t-xlp border-2 border-fcolor p-6">
           <OrderNew/>
         </div>
