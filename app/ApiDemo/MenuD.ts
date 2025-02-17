@@ -121,8 +121,6 @@ const menu: Menu[] = [
     {
         category: "Beverages",
         dishes: [
-          { id: 72, img: "Espresso.webp", name: "Espresso", detail: "A single shot of strong and bold coffee.", serve: 1, price: 80 },
-          { id: 73, img: "Cappuccino.webp", name: "Cappuccino", detail: "Coffee with steamed milk and frothy foam.", serve: 1, price: 100 },
           { id: 74, img: "Latte.webp", name: "Latte", detail: "Mild coffee blended with creamy milk.", serve: 1, price: 120 },
           { id: 75, img: "Mocha.webp", name: "Mocha", detail: "Coffee infused with rich chocolate flavor.", serve: 1, price: 130 },
           { id: 76, img: "Margarita.webp", name: "Margarita", detail: "A refreshing mix of lime, tequila, and triple sec.", serve: 1, price: 250 },
