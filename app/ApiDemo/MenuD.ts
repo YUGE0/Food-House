@@ -39,7 +39,7 @@ const menu: Menu[] = [
         ],
     },
     {
-        category: "Wraps / Tacos",
+        category: "Wraps and Tacos",
         dishes: [
           { id: 16, img: "PaneerWrap.webp", name: "Paneer Wrap", detail: "Tandoori paneer wrapped in soft tortillas.", serve: 1, price: 200 },
           { id: 17, img: "Tacos.webp", name: "Tacos", detail: "Crunchy taco shells stuffed with Indian spiced fillings and fresh veggies.", serve: 1, price: 180 },
