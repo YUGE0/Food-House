@@ -1,3 +1,4 @@
+import { button } from "motion/react-client";
 import type { Config } from "tailwindcss";
 
 export default {
@@ -11,7 +12,10 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        cardbg:"#ffeef2",
+        button:"#00406c",
         fcolor:"#2A4064",
+        lcolor:"#208b3a",
         bc:"#23D16C",
       },
       fontFamily:{

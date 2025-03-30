@@ -49,7 +49,7 @@ const handleSubmit = async (e: { preventDefault: () => void; }) => {
       <form onSubmit={handleSubmit}>
         <div className="mt-10 p-2 md:p-6">
           <h3>Name</h3>
-          <input className="border-b-2 p-2 text-xl capitalize border-black w-full md:w-[30%]" type="text" placeholder="Enter your name" value={name}
+          <input className="border-b-2 p-2 text-xl capitalize border-black w-full md:w-[30%] bg-transparent" type="text" placeholder="Enter your name" value={name}
             onChange={(e) => setName(e.target.value)} required/>
         </div>
         <div className="md:flex justify-between">

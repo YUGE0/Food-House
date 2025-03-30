@@ -40,9 +40,9 @@ interface CustomSelectProps {
             <Image className="p-5" onClick={() => {handleSelect("f8"); toggleSelect()}} src="/F8.svg" width={200} height={50} alt="Table 4" />
         </div>}
       {selectMenu==false ? <div className="col-span-2 border-fcolor bg-fcolor text-white rounded-xlp border-b-2 p-2 items-baseline">
-        <h4 onClick={toggleSelect} className="bg-no-repeat text-center">Table {selectedTable || " Selection"}</h4>
+        <h4 onClick={toggleSelect} className="bg-no-repeat text-center text-cardbg">Table {selectedTable || " Selection"}</h4>
       </div> : <div className="col-span-2 border-fcolor bg-fcolor text-white rounded-b-xlp border-b-2 p-2 items-baseline">
-        <h4 onClick={toggleSelect} className="text-center">{selectedTable || "Select a table"}</h4>
+        <h4 onClick={toggleSelect} className="text-center text-cardbg">{selectedTable || "Select a table"}</h4>
       </div>}
       </div>
     </div>

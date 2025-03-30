@@ -62,8 +62,8 @@ export default function Nav() {
   //console.log(bMenu);
   return (
     <div>
-    <div className="border-none mt-3 px-2 flex justify-between place-items-center">
-      <Link href="/"><Image src="/FoodHouse Logo.svg" width={300} height={100} alt="Food House Logo"/></Link>
+    <div className="border-none mt-3 px-2 flex justify-between place-items-center text-fcolor">
+      <Link href="/"><Image src="/Logonew.svg" width={300} height={100} alt="Food House Logo"/></Link>
         <div className="hidden md:block w-full">
           <div className="flex justify-end gap-10 px-10">
           <Link className="text-Fcolor font-bold text-4xl" href="/menu">Menu</Link>

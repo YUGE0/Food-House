@@ -8,11 +8,11 @@ export default function SFcard(sf: {
 }) 
 {
   return (
-        <div className="bg-black rounded-xl translate-x-4 flex h-36 sm:w-a">
-            <Image className="rounded-xl my-2 -translate-x-10 border-white border-2" src={sf.img} width={130} height={0} alt="Paneer Tikka"/> 
-            <div className="mt-2 p-2 w-full -translate-x-6">
+        <div className="bg-fcolor rounded-xl flex h-28 items-center w-full">
+            <Image className="rounded-xl bg-white my-2 border-fcolor border-4 h-full" src={sf.img} width={130} height={0} alt={sf.iname}/> 
+            <div className="mt-2 p-2 w-full">
                 <h3 className="w-fit">{sf.iname}</h3>
-                <div className="mt-2 flex justify-around">
+                <div className="mt-1 flex w-1/2 justify-between">
                     <div className="">
                         <h4 className="text-xl font-semibold">Serves</h4>
                         <div className="flex">

@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 export default function Footer() {
   return (
-    <div className="p-10 px-20 bg-black text-white flex flex-wrap lg:flex-nowrap justify-between">
+    <div className="p-10 px-20 bg-fcolor text-white flex flex-wrap lg:flex-nowrap justify-between">
         <div className="p-2">
             <h3>Explore</h3>
             <div className="flex flex-col font-normal font-inter">
